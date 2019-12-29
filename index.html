@@ -24,22 +24,19 @@
     <title>Document</title>
 </head>
 
-<body onload="alarm()">
+<body onload="liveClock()">
     <div id="container">
         <div class="row">
-            <div class="col s7">
+            <div class="col s12">
                 <div class="clockBox">
                     Current Time : <span id="myClock"></span>
                 </div>
-            </div>
-            <div class="col s5">
+                <!-- <div class="clockBox">
+                    Next Alarm : <span id="nextAlarm"></span>
+                </div> -->
                 <h2>Details</h2>
-            </div>
-
-            <div class="col s7"></div>
-            <div class="col s5">
                 <div class="alarmBox">
-                    <table class="highlight responsive-table">
+                    <table class="highlight responsive-table centered">
                         <thead>
                             <tr>
                                 <th>Alarm Name</th>
@@ -52,16 +49,21 @@
                             <tr>
                                 <td><input type="text"></td>
                                 <td><input type="time"></td>
-                                <td><input type="button" value="Set Alarm"></td>
-                                <td>Ringed</td>
+                                <td><input type="button" value="Set Alarm"
+                                        onclick="setAlarm(event)">
+                                </td>
+                                <td>--</td>
                             </tr>
                         </tbody>
+                        <!-- <tfoot>
+                            <tr>
+                                <td colspan="4"><input type="button" value="Add new alarm"></td>
+                            </tr>
+                        </tfoot> -->
                     </table>
-
                 </div>
             </div>
         </div>
-
     </div>
 
 
