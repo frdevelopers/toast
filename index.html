@@ -13,19 +13,40 @@
     <title>Document</title>
 </head>
 
-<body>
-    <a onclick="toast('Hello World')" class="btn">Toast!</a>
+<body onload="alarm()">
+    <a onclick="mytoast('Hello World')" class="btn">Toast!</a>
 
-    <script>
 
-    function toast(rawData){
-        var toastHTML = '<span>' + rawData + '</span><button class="btn-flat toast-action">Undo</button>';
-        M.toast({ html: toastHTML });
-    }
-    </script>
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+
+        let rawData = "Hello World";
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+            return i;
+        }
+        function mytoast(rawData) {
+            var toastHTML = '<span>' + rawData + '</span><button class="btn-flat toast-action">Undo</button>';
+            M.toast({ html: toastHTML });
+        }
+        function alarm() {
+            let d = new Date();
+            let hr = d.getHours();
+            let min = d.getMinutes();
+            let sec = d.getSeconds();
+            min = checkTime(min);
+            sec = checkTime(sec);
+            console.log(hr + " : " + min + " : " + sec);
+
+            if (hr == 17 && min == 58 && sec == 30) {
+                mytoast(rawData);
+            } 
+            setTimeout(alarm, 1000);
+        }
+    </script>
+
 </body>
 
 </html>
