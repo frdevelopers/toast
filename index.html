@@ -7,14 +7,62 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            margin: 0px;
+        }
 
+        .clockBox {
+            display: inline-block;
+            padding: 5px;
+            margin: 5px;
+            border: 2px solid black;
+        }
+    </style>
 
 
     <title>Document</title>
 </head>
 
 <body onload="alarm()">
-    <a onclick="mytoast('Hello World')" class="btn">Toast!</a>
+    <div id="container">
+        <div class="row">
+            <div class="col s7">
+                <div class="clockBox">
+                    Current Time : <span id="myClock"></span>
+                </div>
+            </div>
+            <div class="col s5">
+                <h2>Details</h2>
+            </div>
+
+            <div class="col s7"></div>
+            <div class="col s5">
+                <div class="alarmBox">
+                    <table class="highlight responsive-table">
+                        <thead>
+                            <tr>
+                                <th>Alarm Name</th>
+                                <th>Time</th>
+                                <th>Action</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text"></td>
+                                <td><input type="time"></td>
+                                <td><input type="button" value="Set Alarm"></td>
+                                <td>Ringed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 
 
@@ -38,11 +86,11 @@
             let sec = d.getSeconds();
             min = checkTime(min);
             sec = checkTime(sec);
-            console.log(hr + " : " + min + " : " + sec);
+            myClock.innerText = hr + " : " + min + " : " + sec;
 
             if (hr == 17 && min == 58 && sec == 30) {
                 mytoast(rawData);
-            } 
+            }
             setTimeout(alarm, 1000);
         }
     </script>
